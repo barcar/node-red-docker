@@ -8,8 +8,9 @@ FROM node:${NODE_VERSION}-${OS} AS base
 COPY scripts/*.sh /tmp/
 
 # Install tools, create Node-RED app and data dir, add user and set rights
-RUN set -ex && \
-    apt-get update && apt-get install -y \
+RUN set -ex
+
+RUN apt-get update && apt-get install -y \
         bash \
         tzdata \
         curl \
