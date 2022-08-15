@@ -34,7 +34,7 @@ WORKDIR /usr/src/node-red-docker
 
 # Setup SSH known_hosts file
 COPY known_hosts.sh .
-RUN known_hosts.sh /etc/ssh/ssh_known_hosts
+RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts
 RUN rm /usr/src/node-red-docker/known_hosts.sh
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 
