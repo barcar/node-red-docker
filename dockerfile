@@ -30,10 +30,10 @@ RUN apt-get update && apt-get install -y \
     # chown -R node-red:node-red /usr/src/node-red
 
 # Set work directory
-WORKDIR /usr/src/node-red
+WORKDIR /usr/src/node-red-docker
 
 # Setup SSH known_hosts file
-COPY /tmp/known_hosts.sh .
+COPY known_hosts.sh .
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts && rm /usr/src/node-red/known_hosts.sh
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 
