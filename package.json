@@ -29,12 +29,7 @@
         }
     ],
     "dependencies": {
-        "node-red": "3.0.2",
-        "email": "latest",
-        "gmail": "latest",
-        "imap": "latest",
-        "pop": "latest",
-        "mta": "latest"
+        "node-red": "3.0.2"
     },
     "engines": {
         "node": ">=16"
