@@ -6,6 +6,7 @@ FROM node:${NODE_VERSION}-${OS} AS base
 
 # Copy scripts
 COPY scripts/*.sh /tmp/
+RUN /bin/bash -c 'chmod +x /tmp/*.sh'
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex
@@ -34,6 +35,7 @@ WORKDIR /usr/src/node-red-docker
 
 # Setup SSH known_hosts file
 COPY known_hosts.sh .
+RUN /bin/bash -c 'chmod +x ./known_hosts.sh'
 RUN ./known_hosts.sh /etc/ssh/ssh_known_hosts
 RUN rm /usr/src/node-red-docker/known_hosts.sh
 RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
