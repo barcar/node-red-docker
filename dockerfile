@@ -7,6 +7,7 @@ FROM node:${NODE_VERSION}-${OS} AS base
 # Copy scripts
 COPY scripts/*.sh /tmp/
 RUN /bin/bash -c 'chmod +x /tmp/*.sh'
+RUN /bin/bash -c 'chmod +x *.sh'
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex
