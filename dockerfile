@@ -7,7 +7,6 @@ FROM node:${NODE_VERSION}-${OS} AS base
 # Copy scripts
 COPY scripts/*.sh /tmp/
 RUN /bin/bash -c 'chmod +x /tmp/*.sh'
-RUN /bin/bash -c 'chmod +x *.sh'
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex
@@ -45,6 +44,7 @@ RUN echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /etc/ssh/ssh_config
 COPY package.json .
 COPY flows.json /data
 COPY scripts/entrypoint.sh .
+RUN /bin/bash -c 'chmod 755 entrypoint.sh'
 
 #### Stage BUILD #######################################################################################################
 FROM base AS build
