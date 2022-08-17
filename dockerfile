@@ -77,7 +77,7 @@ LABEL org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.arch=${ARCH} \
     authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan"
 
-#COPY --from=build /usr/src/node-red/prod_node_modules ./node_modules
+COPY --from=build /usr/src/node-red/prod_node_modules ./node_modules
 
 # Chown, install devtools & Clean up
 RUN chown -R node-red:root /usr/src/node-red && \
