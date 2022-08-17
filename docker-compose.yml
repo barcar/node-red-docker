@@ -10,3 +10,4 @@ services:
     tty: true
     environment:
       - TZ=Europe/London
+      
