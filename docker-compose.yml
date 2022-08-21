@@ -10,3 +10,8 @@ services:
     tty: true
     environment:
       - TZ=Europe/London
+    volumes:
+      - nodered_data:/data:rw
+volumes:
+  nodered_data:
+    external: true
