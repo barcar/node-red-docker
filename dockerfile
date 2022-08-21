@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
         git \
         openssl \
         openssh-client \
-        ca-certificates && \
+        ca-certificates \
+        chromium && \
     mkdir -p /usr/src/node-red /data && \
     deluser --remove-home node && \
     # adduser --home /usr/src/node-red --disabled-password --no-create-home node-red --uid 1000 && \
@@ -55,7 +56,8 @@ FROM base AS build
 RUN apt-get update && apt-get install -y build-essential python 
 RUN npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 RUN npm uninstall node-red-node-gpio
-RUN ls -la node_modules
+RUN npm ls --omit=dev
+RUN npm audit fix --force
 RUN cp -R node_modules prod_node_modules
 RUN ls -la prod_node_modules
 RUN pwd
