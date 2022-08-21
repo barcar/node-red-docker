@@ -7,6 +7,7 @@ FROM node:${NODE_VERSION}-${OS} AS base
 # Copy scripts
 COPY scripts/*.sh /tmp/
 RUN /bin/bash -c 'chmod +x /tmp/*.sh'
+RUN ls -la /tmp
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex
@@ -32,6 +33,7 @@ RUN apt-get update && apt-get install -y \
 
 # Set work directory
 WORKDIR /usr/src/node-red-docker
+RUN ls -la /usr/src/node-red-docker
 
 # Setup SSH known_hosts file
 COPY known_hosts.sh .
@@ -51,9 +53,12 @@ FROM base AS build
 
 # Install Build tools
 RUN apt-get update && apt-get install -y build-essential python 
-RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 RUN npm uninstall node-red-node-gpio
+RUN ls -la node_modules
 RUN cp -R node_modules prod_node_modules
+RUN ls -la prod_node_modules
+RUN pwd
 
 #### Stage RELEASE #####################################################################################################
 FROM base AS RELEASE
@@ -77,7 +82,8 @@ LABEL org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.arch=${ARCH} \
     authors="Dave Conway-Jones, Nick O'Leary, James Thomas, Raymond Mouthaan"
 
-COPY --from=build /usr/src/node-red/node_modules ./node_modules
+COPY --from=build /usr/src/node-red-docker/prod_node_modules ./node_modules
+RUN ls -la node_modules
 
 # Chown, install devtools & Clean up
 RUN chown -R node-red:root /usr/src/node-red && \
