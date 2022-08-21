@@ -29,7 +29,8 @@
         }
     ],
     "dependencies": {
-        "node-red": "3.0.2"
+        "node-red": "3.0.2",
+	"node-red-contrib-date-converter": "latest"
     },
     "engines": {
         "node": ">=16"
