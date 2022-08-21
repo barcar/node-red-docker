@@ -51,7 +51,7 @@ FROM base AS build
 
 # Install Build tools
 RUN apt-get update && apt-get install -y build-essential python 
-RUN npm install
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 RUN npm uninstall node-red-node-gpio
 RUN cp -R node_modules prod_node_modules
 
