@@ -11,7 +11,6 @@ RUN ls -la /tmp
 
 # Install tools, create Node-RED app and data dir, add user and set rights
 RUN set -ex
-
 RUN apt-get update && apt-get install -y \
         bash \
         tzdata \
@@ -23,6 +22,8 @@ RUN apt-get update && apt-get install -y \
         openssh-client \
         ca-certificates \
         chromium && \
+    curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
+    apt-get install speedtest && \
     mkdir -p /usr/src/node-red /data && \
     deluser --remove-home node && \
     # adduser --home /usr/src/node-red --disabled-password --no-create-home node-red --uid 1000 && \
@@ -57,7 +58,7 @@ RUN apt-get update && apt-get install -y build-essential python
 RUN npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 RUN npm uninstall node-red-node-gpio
 RUN npm ls --omit=dev
-RUN npm audit fix --force
+#RUN npm audit fix --force
 RUN cp -R node_modules prod_node_modules
 RUN ls -la prod_node_modules
 RUN pwd
