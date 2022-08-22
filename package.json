@@ -56,7 +56,6 @@
         "node-red-dashboard": "latest",
         "node-red-node-feedparser": "latest",
         "node-red-node-mysql": "latest",
-	"nodered-contrib-signal-client": "latest",
         "node-red-node-stomp": "latest",
         "node-red-node-suncalc": "latest",
         "node-red-node-twitter": "latest",
