@@ -2,7 +2,7 @@ version: "3.5"
 services:
   nodered:
     build: .
-    container_name: nodered-debian
+    container_name: nodered
     privileged: true
     restart: unless-stopped
     network_mode: host
