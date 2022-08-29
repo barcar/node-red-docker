@@ -34,8 +34,6 @@ RUN apt-get update && apt-get install -y \
     # chown -R node-red:node-red /data && \
     # chown -R node-red:node-red /usr/src/node-red
 
-RUN speedtest --accept-license --accept-gdpr --progress=NO
-
 # Set work directory
 WORKDIR /usr/src/node-red-docker
 RUN ls -la /usr/src/node-red-docker
@@ -99,6 +97,8 @@ RUN chown -R node-red:root /usr/src/node-red && \
 RUN npm config set cache /data/.npm --global
 
 USER node-red
+
+RUN speedtest --accept-license --accept-gdpr --progress=NO
 
 # Env variables
 ENV NODE_RED_VERSION=$NODE_RED_VERSION \
