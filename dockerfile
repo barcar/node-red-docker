@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
         openssl \
         openssh-client \
         ca-certificates \
-        chromium && \
+        chromium \
+        nmap && \
     curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
     apt-get install speedtest && \
     mkdir -p /usr/src/node-red /data && \
