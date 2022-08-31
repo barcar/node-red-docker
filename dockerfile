@@ -113,6 +113,6 @@ ENV NODE_RED_ENABLE_PROJECTS=true
 EXPOSE 1880
 
 # Add a healthcheck (default every 30 secs)
-HEALTHCHECK CMD curl http://localhost:1880/ || exit 1
+#HEALTHCHECK CMD curl http://localhost:1880/ || exit 1
 
 ENTRYPOINT ["./entrypoint.sh"]
