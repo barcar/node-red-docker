@@ -14,8 +14,8 @@ services:
       - nodered_data:/data:rw
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:1880"]
-      interval: 1m30s
-      timeout: 10s
+      interval: 5m
+      timeout: 60s
       retries: 3
       start_period: 40s
 volumes:
