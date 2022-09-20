@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
         openssh-client \
         ca-certificates \
         chromium \
-        nmap && \
+        nmap \
         net-tools && \
     curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
     apt-get install speedtest && \
