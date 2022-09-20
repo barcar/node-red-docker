@@ -12,12 +12,12 @@ services:
       - TZ=Europe/London
     volumes:
       - nodered_data:/data:rw
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:1880"]
-      interval: 5m
-      timeout: 60s
-      retries: 3
-      start_period: 40s
+ #   healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:1880"]
+#      interval: 5m
+#      timeout: 60s
+#      retries: 3
+#      start_period: 40s
 volumes:
   nodered_data:
     external: true
