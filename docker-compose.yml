@@ -13,7 +13,7 @@ services:
     volumes:
       - nodered_data:/data:rw
     healthcheck:
-      test: netstat -an | grep 1880; if [ 0 != $? ]; then exit 1; fi;
+      test: netstat -an | grep 1880; if [ 0 != $$? ]; then exit 1; fi;
 #      test: ["CMD", "curl", "-f", "http://localhost:1880"]
       interval: 5m
       timeout: 60s
