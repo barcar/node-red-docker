@@ -12,13 +12,13 @@ services:
       - TZ=Europe/London
     volumes:
       - nodered_data:/data:rw
-    healthcheck:
-      test: netstat -an | grep 1880; if [ 0 != $$? ]; then exit 1; fi;
-#      test: ["CMD", "curl", "-f", "http://localhost:1880"]
-      interval: 30s
-      timeout: 20s
-      retries: 3
-      start_period: 40s
+#    healthcheck:
+#      test: netstat -an | grep 1880; if [ 0 != $$? ]; then exit 1; fi;
+##      test: ["CMD", "curl", "-f", "http://localhost:1880"]
+#      interval: 30s
+#      timeout: 20s
+#      retries: 3
+#      start_period: 40s
 volumes:
   nodered_data:
     external: true
