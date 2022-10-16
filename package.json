@@ -37,7 +37,7 @@
         "node-red-contrib-dnsquery": "latest",
         "node-red-contrib-flogger-now": "latest",
 	"node-red-contrib-homebridge-automation": "latest",
-	"node-red-contrib-huemagic": "latest",
+	"node-red-contrib-huemagic": "lallafa/node-red-contrib-huemagic",
         "node-red-contrib-gzip": "latest",
         "node-red-contrib-influxdb": "latest",
         "node-red-contrib-join-wait": "latest",
