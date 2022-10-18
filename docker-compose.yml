@@ -20,7 +20,7 @@ services:
 #      retries: 3
 #      start_period: 40s
     labels:
-      - "com.centurylinklabs.watchtower.enable=true"
+#      - "com.centurylinklabs.watchtower.enable=true"
 volumes:
   nodered_data:
     external: true
