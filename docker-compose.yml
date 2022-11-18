@@ -5,7 +5,8 @@ services:
     container_name: nodered
     privileged: true
     restart: unless-stopped
-    network_mode: host
+    ports:
+      - 1880:1880
     stdin_open: true 
     tty: true
     environment:
